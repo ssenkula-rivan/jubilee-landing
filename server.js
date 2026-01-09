@@ -94,7 +94,7 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
 });
 
 // Insurance Inquiry Endpoint
-app.post('/api/insurance', async (req, res) => {
+app.post('/api/insurance', upload.none(), async (req, res) => {
     try {
         const { fullName, email, phone, insuranceType, corporatePlan, smePlan, personalPlan, ageCategory, numberOfPeople, motivation } = req.body;
         
