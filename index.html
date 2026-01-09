@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaggo George - Sales Agents Needed</title>
+    <meta name="description" content="Jubilee Health Insurance is hiring Sales Agents in Kampala. Join Uganda's trusted health insurance provider. Competitive benefits and training provided.">
+    <meta name="author" content="Ssenkula Rivan - Cranictech Software Engineer">
+    <meta name="designer" content="Ssenkula Rivan">
+    <meta name="company" content="Cranictech">
+    <!-- Website designed and developed by Ssenkula Rivan | Cranictech Software Engineer -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1429 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profile-img-wrapper {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            padding: 3px;
+            background: linear-gradient(135deg, #c41e3a, #ff8c00, #ffd700, #ff8c00, #c41e3a);
+            background-size: 300% 300%;
+            animation: profileBeam 8s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        @keyframes profileBeam {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .cta-button {
+            background: white;
+            color: #c41e3a;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .job-tooltip {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            background: linear-gradient(135deg, #c41e3a 0%, #ff8c00 100%);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            white-space: nowrap;
+            box-shadow: 0 5px 25px rgba(196,30,58,0.4);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 200;
+        }
+
+        .job-tooltip.show {
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+            animation: tooltipBounce 2s ease-in-out infinite;
+        }
+
+        .job-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px 10px 0 10px;
+            border-style: solid;
+            border-color: #ff8c00 transparent transparent transparent;
+        }
+
+        .job-tooltip .arrow-down {
+            display: block;
+            text-align: center;
+            margin-top: 3px;
+            animation: arrowBounce 1s ease-in-out infinite;
+        }
+
+        @keyframes tooltipBounce {
+            0%, 100% { transform: translateX(-50%) scale(1) translateY(0); }
+            50% { transform: translateX(-50%) scale(1) translateY(-5px); }
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(3px); }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.95) 0%, rgba(139, 20, 41, 0.95) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 50 Q 25 40, 50 50 T 100 50" stroke="rgba(255,255,255,0.05)" stroke-width="2" fill="none"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-cta {
+            background: white;
+            color: #c41e3a;
+            padding: 1.2rem 3.5rem;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease 0.4s both, pulse 2s ease-in-out infinite;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            margin-left: 3rem;
+        }
+
+        .hero-cta::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(90deg, #c41e3a, #ff6b6b, #ff8c00, #ffa500, #c41e3a, #ff6b6b, #ff8c00);
+            background-size: 400% 100%;
+            border-radius: 50px;
+            z-index: -1;
+            animation: beamRotate 6s linear infinite;
+        }
+
+        .hero-cta::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: white;
+            border-radius: 50px;
+            z-index: -1;
+        }
+
+        @keyframes beamRotate {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 400% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); }
+            50% { box-shadow: 0 0 30px 15px rgba(255,255,255,0.4); }
+        }
+
+        .hero-cta:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 40px rgba(196,30,58,0.5);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 500px;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            text-align: left;
+            padding-right: 2rem;
+        }
+
+        .banner-card {
+            width: 480px;
+            height: 480px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 4px solid white;
+            background: #eee;
+        }
+
+        .banner-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .banner-card img.active {
+            opacity: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            padding: 5rem 0;
+            background-image: url('background.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.7);
+        }
+
+        .section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            color: #c41e3a;
+            position: relative;
+            display: inline-block;
+            width: auto;
+            padding: 0.6rem 1.8rem;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box, linear-gradient(90deg, #c41e3a, #ff8c00, #ffd700, #ff8c00, #c41e3a) border-box;
+            border-radius: 10px;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .section-title:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 8px 30px rgba(196,30,58,0.25);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ffd700, #ff8c00, #c41e3a, #ff8c00, #ffd700);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100%;
+        }
+
+        .qualifications .section-title {
+            background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)) padding-box, linear-gradient(90deg, #ffd700, #ff8c00, #ffffff, #ff8c00, #ffd700) border-box;
+            color: #c41e3a;
+        }
+
+        .qualifications .section-title::after {
+            background: linear-gradient(90deg, #ffd700, #ffffff, #ffd700);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .about-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-left: 5px solid #c41e3a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(196,30,58,0.1) 0%, transparent 50%);
+            border-radius: 0 0 0 100%;
+        }
+
+        .about-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(196,30,58,0.15);
+        }
+
+        .about-card h3 {
+            color: #c41e3a;
+            margin-bottom: 1.2rem;
+            font-size: 1.6rem;
+        }
+
+        .about-card p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .role-section {
+            background-image: url('background.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .role-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(248,249,250,0.7) 0%, rgba(233,236,239,0.7) 100%);
+        }
+
+        .role-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .role-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #c41e3a, #ff8c00, #c41e3a);
+        }
+
+        .role-content h3 {
+            color: #c41e3a;
+            margin-bottom: 1.2rem;
+            font-size: 2rem;
+        }
+
+        .role-content ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .role-content li {
+            padding: 1rem 0;
+            padding-left: 2.5rem;
+            position: relative;
+            font-size: 1.05rem;
+            color: #444;
+            transition: all 0.3s ease;
+        }
+
+        .role-content li:hover {
+            color: #c41e3a;
+            transform: translateX(5px);
+        }
+
+        .role-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, #c41e3a, #ff8c00);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .qualifications {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1429 50%, #c41e3a 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qualifications::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: shimmer 15s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .qual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .qual-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .qual-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .qual-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .qual-card p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .contact-section {
+            padding: 5rem 0;
+            background-image: url('background.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(248,249,250,0.7) 0%, rgba(255,255,255,0.7) 100%);
+        }
+
+        .contact-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s ease;
+            border-bottom: 5px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(90deg, #c41e3a, #ff8c00);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(196,30,58,0.15);
+        }
+
+        .contact-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-card h3 {
+            color: #c41e3a;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+        }
+
+        .contact-card a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .contact-card a:hover {
+            color: #c41e3a;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .footer a {
+            color: #ff8c00;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #c41e3a;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .wa-button {
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            cursor: pointer;
+            border: none;
+            animation: shake 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(-10deg) scale(1.1); }
+            20% { transform: rotate(10deg) scale(1.1); }
+            30% { transform: rotate(-10deg) scale(1.1); }
+            40% { transform: rotate(10deg) scale(1.1); }
+            50%, 100% { transform: rotate(0deg) scale(1); }
+        }
+
+        .wa-button:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        .wa-chat-box {
+            display: none;
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 320px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .wa-chat-box.active {
+            display: block;
+        }
+
+        .wa-chat-header {
+            background: #075E54;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wa-chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .wa-chat-header-info h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .wa-chat-header-info p {
+            margin: 0;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .wa-chat-body {
+            padding: 15px;
+            background: #ECE5DD;
+            min-height: 100px;
+        }
+
+        .wa-chat-bubble {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+        }
+
+        .wa-chat-bubble small {
+            display: block;
+            text-align: right;
+            color: #999;
+            font-size: 0.7rem;
+            margin-top: 5px;
+        }
+
+        .wa-chat-footer {
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .wa-chat-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .wa-chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .wa-chat-input input:focus {
+            outline: none;
+        }
+
+        .wa-chat-input button {
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wa-user-msg {
+            background: #DCF8C6;
+            margin-left: auto;
+            margin-top: 10px;
+        }
+
+        .wa-chat-body {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .wa-email-btn {
+            display: block;
+            width: 100%;
+            background: #c41e3a;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .wa-email-btn:hover {
+            background: #8b1429;
+        }
+
+        .wa-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-close:hover {
+            color: #c41e3a;
+        }
+
+        .modal-title {
+            color: #c41e3a;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #c41e3a;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #c41e3a 0%, #8b1429 100%);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .wa-btn {
+            display: block;
+            width: 100%;
+            background: #25D366;
+            color: white;
+            padding: 1rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .contact-img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .banner-card {
+                width: 300px;
+                height: 300px;
+                margin: 1rem auto 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-header">
+                    <div class="profile-img-wrapper">
+                        <img src="team3.jpeg" alt="Jubilee" class="profile-img">
+                    </div>
+                    <span class="logo">GEORGE KAGGO</span>
+                </div>
+                <a href="#" onclick="openModal(); return false;" class="cta-button">
+                    APPLY NOW
+                    <span class="job-tooltip" id="jobTooltip">
+                        Job Applications
+                        <span class="arrow-down">▼</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <h1>WE'RE HIRING SALES AGENTS</h1>
+                    <p>Join Uganda's Most Trusted Health Insurance Provider</p>
+                    <a href="#" onclick="openInsuranceModal(); return false;" class="hero-cta">START YOUR CAREER TODAY</a>
+                </div>
+                <div class="banner-card">
+                    <img src="team1.jpeg" class="active" alt="Jubilee Health Insurance">
+                    <img src="team2.jpeg" alt="Jubilee Health Insurance">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">About Jubilee Health Insurance</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Our Heritage</h3>
+                    <p>Jubilee Health Insurance Company of Uganda Ltd (JHICU) is part of the Jubilee Insurance Companies across East Africa, first incorporated on 3rd August 1937 in Mombasa, Kenya.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Local Presence</h3>
+                    <p>In 1940, Jubilee Insurance opened a full branch office in Kampala. On 23rd July 1991, Jubilee was locally incorporated in Uganda, serving our community for over 30 years.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Commitment</h3>
+                    <p>We provide first-class health insurance products including inpatient, out-patient, maternity, dental, optical coverage and comprehensive scheme administration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section role-section">
+        <div class="container">
+            <h2 class="section-title">Description</h2>
+            <div class="role-content">
+                <h3>Full-Time On-Site Position in Kampala</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">As a Sales Agent at Jubilee Health Insurance, you will be the face of our company, helping individuals and businesses secure their health and financial future.</p>
+                
+                <h4 style="color: #c41e3a; margin-top: 2rem; margin-bottom: 1rem;">Key Responsibilities:</h4>
+                <ul>
+                    <li>Engage with potential clients and customers professionally</li>
+                    <li>Provide detailed information about health insurance products</li>
+                    <li>Address customer inquiries and concerns effectively</li>
+                    <li>Assist customers through the application process</li>
+                    <li>Maintain strong customer relationships for retention</li>
+                    <li>Achieve sales targets and performance goals</li>
+                    <li>Attend team meetings and training sessions</li>
+                    <li>Participate in ongoing Company Agents programs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section qualifications">
+        <div class="container">
+            <h2 class="section-title">Qualifications Required</h2>
+            <div class="qual-grid">
+                <div class="qual-card">
+                    <h4> Education</h4>
+                    <p>Bachelor's degree or Diploma in a related field</p>
+                </div>
+                <div class="qual-card">
+                    <h4>Experience</h4>
+                    <p>Experience in Sales and Insurance industry preferred</p>
+                </div>
+                <div class="qual-card">
+                    <h4> Communication</h4>
+                    <p>Strong communication and customer service skills</p>
+                </div>
+                <div class="qual-card">
+                    <h4>Teamwork</h4>
+                    <p>Ability to work effectively in a team environment</p>
+                </div>
+                <div class="qual-card">
+                    <h4>Digital Skills</h4>
+                    <p>Proficient in using digital tools and software</p>
+                </div>
+                <div class="qual-card">
+                    <h4>Organization</h4>
+                    <p>Highly organized with excellent time management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="apply">
+        <div class="container">
+            <h2 class="section-title">Ready to Join Our Team?</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Send your resume and start your journey with Jubilee Health Insurance today!</p>
+            
+            <div class="contact-content">
+                <div class="contact-card">
+                    <img src="gmail-new-2020-seeklogo.png" alt="Email" class="contact-img">
+                    <h3>Email</h3>
+                    <a href="mailto:george.kaggo@jubileeuganda.com">george.kaggo@jubileeuganda.com</a>
+                </div>
+                <div class="contact-card">
+                    <img src="phone-seeklogo.png" alt="Phone" class="contact-img">
+                    <h3>Phone</h3>
+                    <a href="tel:0777171309">0777 171 309</a><br>
+                    <a href="tel:0705154382">0705 154 382</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" onclick="openModal(); return false;" class="hero-cta">
+                    APPLY NOW
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p><strong>Jubilee Health Insurance Company of Uganda Ltd</strong></p>
+            <p>Kampala, Central Region, Uganda</p>
+            <p style="margin-top: 1rem;">&copy; 2026 Jubilee Health Insurance. All rights reserved. | <a href="https://www.jubileeinsurance.com">jubileeinsurance.com</a></p>
+        </div>
+    </footer>
+
+
+
+    <!-- WhatsApp Chat Widget -->
+    <div class="whatsapp-float">
+        <div class="wa-chat-box" id="waChat">
+            <button class="wa-close" onclick="toggleWhatsApp()">&times;</button>
+            <div class="wa-chat-header">
+                <img src="team3.jpeg" alt="Jubilee">
+                <div class="wa-chat-header-info">
+                    <h4>Jubilee Health Insurance</h4>
+                    <p>Typically replies instantly</p>
+                </div>
+            </div>
+            <div class="wa-chat-body">
+                <div class="wa-chat-bubble">
+                     Hello! Welcome to Jubilee Health Insurance. How can we help you today?
+                    <small>Just now</small>
+                </div>
+            </div>
+            <div class="wa-chat-footer">
+                <form class="wa-chat-input" id="waForm" onsubmit="sendWhatsApp(event)">
+                    <input type="text" id="waMessage" placeholder="Type a message..." required>
+                    <button type="submit">
+                        <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <button class="wa-button" onclick="toggleWhatsApp()">
+            <svg width="30" height="30" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </button>
+    </div>
+
+    <!-- Insurance Inquiry Modal (START YOUR CAREER TODAY button) -->
+    <div class="modal-overlay" id="insuranceModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeInsuranceModal()">&times;</button>
+            <h2 class="modal-title">Get Insurance Quote</h2>
+            <form id="insuranceForm">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Select Insurance Type *</label>
+                    <select name="insuranceType" id="insuranceType" required onchange="showSubOptions()">
+                        <option value="">-- Select Category --</option>
+                        <option value="Corporate">Corporate (Big Companies - 20+ people)</option>
+                        <option value="SME">SME (Mini Companies - 10-19 people)</option>
+                        <option value="Personal">Personal Insurance (1-9 people)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="corporateOptions" style="display:none;">
+                    <label>Corporate Plan *</label>
+                    <select name="corporatePlan">
+                        <option value="">-- Select Plan --</option>
+                        <option value="Corporate Health">Corporate Health (20+ people)</option>
+                        <option value="Corporate Life">Corporate Life (20+ people)</option>
+                        <option value="Corporate Health & Life">Corporate Health & Life (20+ people)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="smeOptions" style="display:none;">
+                    <label>SME Plan *</label>
+                    <select name="smePlan">
+                        <option value="">-- Select Plan --</option>
+                        <option value="SME Health">SME Health (10-19 people)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="personalOptions" style="display:none;">
+                    <label>Personal Plan *</label>
+                    <select name="personalPlan" id="personalPlan" onchange="showAgeOptions()">
+                        <option value="">-- Select Plan --</option>
+                        <option value="J-Care">J-Care (9 people and below)</option>
+                        <option value="J-Senior">J-Senior (60-80 years)</option>
+                        <option value="J-Junior">J-Junior (Children Only: 1 month - 17 years)</option>
+                    </select>
+                </div>
+                <div class="form-group" id="jcareAgeOptions" style="display:none;">
+                    <label>Age Category *</label>
+                    <select name="ageCategory">
+                        <option value="">-- Select Age --</option>
+                        <option value="1 month - 17 years">Children (1 month - 17 years)</option>
+                        <option value="18 - 59 years">Adults (18 - 59 years)</option>
+                        <option value="1 month - 59 years">All Ages (1 month - 59 years)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Number of People to Insure</label>
+                    <input type="number" name="numberOfPeople" min="1" placeholder="Enter number">
+                </div>
+                <div class="form-group">
+                    <label>Additional Message</label>
+                    <textarea name="motivation" rows="3" placeholder="Tell us more about your insurance needs..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">GET QUOTE</button>
+                <a href="https://wa.me/256777171309?text=Hello%2C%20I%20am%20interested%20in%20getting%20health%20insurance" target="_blank" class="wa-btn">💬 CHAT ON WHATSAPP</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Job Application Modal (APPLY NOW button) -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 class="modal-title">Join Our Team</h2>
+            <p style="text-align:center; margin-bottom:1.5rem; color:#666;">Apply to become a Sales Agent at Jubilee Health Insurance</p>
+            <form id="applicationForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Highest Education Level *</label>
+                    <select name="education" required>
+                        <option value="">Select</option>
+                        <option value="Certificate">Certificate</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Sales Experience *</label>
+                    <select name="experience" required>
+                        <option value="">Select</option>
+                        <option value="No experience">No experience</option>
+                        <option value="Less than 1 year">Less than 1 year</option>
+                        <option value="1-2 years">1-2 years</option>
+                        <option value="3-5 years">3-5 years</option>
+                        <option value="More than 5 years">More than 5 years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Why do you want to join Jubilee?</label>
+                    <textarea name="motivation" rows="3" placeholder="Tell us briefly..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Upload CV/Resume (PDF or Image, max 10MB) *</label>
+                    <input type="file" name="cv" id="cvUpload" accept=".pdf,.jpg,.jpeg,.png" required onchange="validateCV(this)">
+                    <small style="color:#666; display:block; margin-top:5px;">Accepted: PDF, JPG, PNG (Max 10MB)</small>
+                    <small id="cvError" style="color:#c41e3a; display:none;"></small>
+                </div>
+                <button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
+                <a href="https://wa.me/256777171309?text=Hello%2C%20I%20am%20interested%20in%20the%20Sales%20Agent%20position%20at%20Jubilee%20Health%20Insurance" target="_blank" class="wa-btn">💬 CHAT ON WHATSAPP</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Banner Image Rotation - 2 seconds
+        var bannerImages = document.querySelectorAll('.banner-card img');
+        var currentImage = 0;
+        setInterval(function() {
+            bannerImages[currentImage].classList.remove('active');
+            currentImage = (currentImage + 1) % bannerImages.length;
+            bannerImages[currentImage].classList.add('active');
+        }, 2000);
+
+        // Show job tooltip after 5 seconds
+        setTimeout(function() {
+            document.getElementById('jobTooltip').classList.add('show');
+        }, 5000);
+
+        // Modal Functions job application
+        function openModal() {
+            document.getElementById('modalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Modal Functions - Insurance Inquiry 
+        function openInsuranceModal() {
+            document.getElementById('insuranceModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInsuranceModal() {
+            document.getElementById('insuranceModal').classList.remove('active');
+            document.body.style.overflow = '';
+            document.getElementById('corporateOptions').style.display = 'none';
+            document.getElementById('smeOptions').style.display = 'none';
+            document.getElementById('personalOptions').style.display = 'none';
+            document.getElementById('jcareAgeOptions').style.display = 'none';
+        }
+
+        function showSubOptions() {
+            var type = document.getElementById('insuranceType').value;
+            document.getElementById('corporateOptions').style.display = 'none';
+            document.getElementById('smeOptions').style.display = 'none';
+            document.getElementById('personalOptions').style.display = 'none';
+            document.getElementById('jcareAgeOptions').style.display = 'none';
+            
+            if (type === 'Corporate') {
+                document.getElementById('corporateOptions').style.display = 'block';
+            } else if (type === 'SME') {
+                document.getElementById('smeOptions').style.display = 'block';
+            } else if (type === 'Personal') {
+                document.getElementById('personalOptions').style.display = 'block';
+            }
+        }
+
+        function showAgeOptions() {
+            var plan = document.getElementById('personalPlan').value;
+            if (plan === 'J-Care') {
+                document.getElementById('jcareAgeOptions').style.display = 'block';
+            } else {
+                document.getElementById('jcareAgeOptions').style.display = 'none';
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.getElementById('insuranceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInsuranceModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeInsuranceModal();
+            }
+        });
+
+        // CV Validation
+        function validateCV(input) {
+            var file = input.files[0];
+            var errorEl = document.getElementById('cvError');
+            var maxSize = 10 * 1024 * 1024; 
+            var allowedTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+            
+            errorEl.style.display = 'none';
+            
+            if (file) {
+                if (!allowedTypes.includes(file.type)) {
+                    errorEl.textContent = 'Please upload PDF or image file (JPG, PNG) only.';
+                    errorEl.style.display = 'block';
+                    input.value = '';
+                    return false;
+                }
+                if (file.size > maxSize) {
+                    errorEl.textContent = 'File too large. Maximum size is 10MB.';
+                    errorEl.style.display = 'block';
+                    input.value = '';
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Job Application Form Submit
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var cvInput = document.getElementById('cvUpload');
+            if (!validateCV(cvInput)) {
+                return false;
+            }
+            
+            var formData = new FormData(this);
+            var submitBtn = this.querySelector('.submit-btn');
+            submitBtn.textContent = 'SUBMITTING...';
+            submitBtn.disabled = true;
+            
+            fetch('/api/apply', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    this.reset();
+                    closeModal();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+                submitBtn.textContent = 'SUBMIT APPLICATION';
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                alert('Error submitting form. Please try again.');
+                submitBtn.textContent = 'SUBMIT APPLICATION';
+                submitBtn.disabled = false;
+            });
+        });
+
+        // Insurance Form Submit
+        document.getElementById('insuranceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var formData = new FormData(this);
+            var submitBtn = this.querySelector('.submit-btn');
+            submitBtn.textContent = 'SUBMITTING...';
+            submitBtn.disabled = true;
+            
+            fetch('/api/insurance', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.message);
+                    this.reset();
+                    document.getElementById('corporateOptions').style.display = 'none';
+                    document.getElementById('smeOptions').style.display = 'none';
+                    document.getElementById('personalOptions').style.display = 'none';
+                    document.getElementById('jcareAgeOptions').style.display = 'none';
+                    closeInsuranceModal();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+                submitBtn.textContent = 'GET QUOTE';
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                alert('Error submitting form. Please try again.');
+                submitBtn.textContent = 'GET QUOTE';
+                submitBtn.disabled = false;
+            });
+        });
+
+        // WhatsApp Chat Widget
+        function toggleWhatsApp() {
+            document.getElementById('waChat').classList.toggle('active');
+        }
+
+        function sendWhatsApp(e) {
+            e.preventDefault();
+            var message = document.getElementById('waMessage').value;
+            var encodedMessage = encodeURIComponent(message);
+            window.open('https://wa.me/256777171309?text=' + encodedMessage, '_blank');
+            document.getElementById('waMessage').value = '';
+        }
+    </script>
+</body>
+</html>
