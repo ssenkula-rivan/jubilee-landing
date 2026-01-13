@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const TO_EMAIL = 'george.kaggo@jubileeuganda.com';
+const TO_EMAIL = 'kaggogeorge20@gmail.com';
 
 // Job Application Endpoint
 app.post('/api/apply', upload.single('cv'), async (req, res) => {
