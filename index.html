@@ -11,6 +11,7 @@
     <!-- Website designed and developed by Ssenkula Rivan | Cranictech Software Engineer -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         * {
             margin: 0;
@@ -1214,6 +1215,7 @@
                     <label>Additional Message</label>
                     <textarea name="motivation" rows="3" placeholder="Tell us more about your insurance needs..."></textarea>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin-bottom: 1.5rem;"></div>
                 <button type="submit" class="submit-btn">GET QUOTE</button>
                 <a href="https://wa.me/256777171309?text=Hello%2C%20I%20am%20interested%20in%20getting%20health%20insurance" target="_blank" class="wa-btn">💬 CHAT ON WHATSAPP</a>
             </form>
@@ -1270,6 +1272,7 @@
                     <small style="color:#666; display:block; margin-top:5px;">Accepted: PDF, JPG, PNG (Max 10MB)</small>
                     <small id="cvError" style="color:#c41e3a; display:none;"></small>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin-bottom: 1.5rem;"></div>
                 <button type="submit" class="submit-btn">SUBMIT APPLICATION</button>
                 <a href="https://wa.me/256777171309?text=Hello%2C%20I%20am%20interested%20in%20the%20Sales%20Agent%20position%20at%20Jubilee%20Health%20Insurance" target="_blank" class="wa-btn">💬 CHAT ON WHATSAPP</a>
             </form>
@@ -1399,6 +1402,13 @@
             }
             
             var formData = new FormData(this);
+            var recaptchaToken = grecaptcha.getResponse();
+            if (!recaptchaToken) {
+                alert('Please complete the reCAPTCHA verification');
+                return false;
+            }
+            formData.append('recaptchaToken', recaptchaToken);
+            
             var submitBtn = this.querySelector('.submit-btn');
             submitBtn.textContent = 'SUBMITTING...';
             submitBtn.disabled = true;
@@ -1412,9 +1422,10 @@
                 if (data.success) {
                     alert(data.message);
                     this.reset();
+                    grecaptcha.reset();
                     closeModal();
                 } else {
-                    alert('Error: ' + data.message);
+                    alert(data.message);
                 }
                 submitBtn.textContent = 'SUBMIT APPLICATION';
                 submitBtn.disabled = false;
@@ -1431,6 +1442,13 @@
             e.preventDefault();
             
             var formData = new FormData(this);
+            var recaptchaToken = grecaptcha.getResponse();
+            if (!recaptchaToken) {
+                alert('Please complete the reCAPTCHA verification');
+                return false;
+            }
+            formData.append('recaptchaToken', recaptchaToken);
+            
             var submitBtn = this.querySelector('.submit-btn');
             submitBtn.textContent = 'SUBMITTING...';
             submitBtn.disabled = true;
@@ -1444,13 +1462,14 @@
                 if (data.success) {
                     alert(data.message);
                     this.reset();
+                    grecaptcha.reset();
                     document.getElementById('corporateOptions').style.display = 'none';
                     document.getElementById('smeOptions').style.display = 'none';
                     document.getElementById('personalOptions').style.display = 'none';
                     document.getElementById('jcareAgeOptions').style.display = 'none';
                     closeInsuranceModal();
                 } else {
-                    alert('Error: ' + data.message);
+                    alert(data.message);
                 }
                 submitBtn.textContent = 'GET QUOTE';
                 submitBtn.disabled = false;

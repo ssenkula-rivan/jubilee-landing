@@ -3,15 +3,27 @@ const multer = require('multer');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const path = require('path');
+const rateLimit = require('express-rate-limit');
+const axios = require('axios');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Rate limiting - max 5 requests per 15 minutes per IP
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 5,
+    message: 'Too many submissions from this IP, please try again later.',
+    standardHeaders: true,
+    legacyHeaders: false,
+});
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('.'));
+app.use('/api/', limiter);
 
 // File upload config
 const storage = multer.memoryStorage();
@@ -41,10 +53,35 @@ const transporter = nodemailer.createTransport({
 
 const TO_EMAIL = 'kaggogeorge20@gmail.com';
 
+// Verify reCAPTCHA token
+async function verifyRecaptcha(token) {
+    try {
+        const response = await axios.post(
+            `https://www.google.com/recaptcha/api/siteverify`,
+            null,
+            {
+                params: {
+                    secret: process.env.RECAPTCHA_SECRET_KEY,
+                    response: token
+                }
+            }
+        );
+        return response.data.success && response.data.score > 0.5;
+    } catch (error) {
+        console.error('reCAPTCHA verification error:', error);
+        return false;
+    }
+}
+
 // Job Application Endpoint
 app.post('/api/apply', upload.single('cv'), async (req, res) => {
     try {
-        const { fullName, email, phone, education, experience, motivation } = req.body;
+        const { fullName, email, phone, education, experience, motivation, recaptchaToken } = req.body;
+        
+        // Verify reCAPTCHA
+        if (!recaptchaToken || !(await verifyRecaptcha(recaptchaToken))) {
+            return res.json({ success: false, message: 'Security verification failed. Please try again.' });
+        }
         
         if (!fullName || !email || !phone || !education || !experience) {
             return res.json({ success: false, message: 'Please fill all required fields' });
@@ -52,6 +89,12 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
 
         if (!req.file) {
             return res.json({ success: false, message: 'Please upload your CV' });
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.json({ success: false, message: 'Please enter a valid email address' });
         }
 
         const mailOptions = {
@@ -89,17 +132,28 @@ app.post('/api/apply', upload.single('cv'), async (req, res) => {
 
     } catch (error) {
         console.error('Error:', error);
-        res.json({ success: false, message: 'Failed to send application. Please try again.' });
+        res.json({ success: false, message: 'Failed to process your application. Please try again later.' });
     }
 });
 
 // Insurance Inquiry Endpoint
 app.post('/api/insurance', upload.none(), async (req, res) => {
     try {
-        const { fullName, email, phone, insuranceType, corporatePlan, smePlan, personalPlan, ageCategory, numberOfPeople, motivation } = req.body;
+        const { fullName, email, phone, insuranceType, corporatePlan, smePlan, personalPlan, ageCategory, numberOfPeople, motivation, recaptchaToken } = req.body;
+        
+        // Verify reCAPTCHA
+        if (!recaptchaToken || !(await verifyRecaptcha(recaptchaToken))) {
+            return res.json({ success: false, message: 'Security verification failed. Please try again.' });
+        }
         
         if (!fullName || !email || !phone || !insuranceType) {
             return res.json({ success: false, message: 'Please fill all required fields' });
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.json({ success: false, message: 'Please enter a valid email address' });
         }
 
         let selectedPlan = '';
@@ -146,7 +200,7 @@ app.post('/api/insurance', upload.none(), async (req, res) => {
 
     } catch (error) {
         console.error('Error:', error);
-        res.json({ success: false, message: 'Failed to send inquiry. Please try again.' });
+        res.json({ success: false, message: 'Failed to process your inquiry. Please try again later.' });
     }
 });
 
